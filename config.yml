@@ -1,0 +1,18 @@
+logsPath: ./logs/
+
+ffmpeg:
+  name: ffmpeg
+  outPath: ./tmp/
+  videoPath: ./video/
+
+SendMessage:
+  ServerChanSendKey:
+  DingDing:
+    accessToken:
+    secret:
+
+liveList:
+  000000:
+    name: XXXXXX
+    mid: 000000
+    rid: 111111
