@@ -113,8 +113,11 @@ def main() -> None:
             lsm.liveOpen(Time, liveTitle, liveCoverURL)
             log.info('['+Time+']ffmpeg开启')
             os.system(ffmpeg+' -headers "referer: https://bilibili.com/" -i "'+liveUrl+'" -c copy '+ffmpegOutPath+Time+'.mp4') #启动ffmpeg
-            shutil.copy(ffmpegOutPath+Time+'.mp4', ffmpegVideoPath+Time+'.mp4') #复制到video文件夹
-            os.remove(ffmpegOutPath+Time+'.mp4') #删除ffmpeg生成的文件
+            try:
+                shutil.copy(ffmpegOutPath+Time+'.mp4', ffmpegVideoPath+Time+'.mp4') #复制到video文件夹
+                os.remove(ffmpegOutPath+Time+'.mp4') #删除ffmpeg生成的文件
+            except:
+                pass
             #日志log: ffmpeg关闭
             lsm.liveDown(getNowTime())
         time.sleep(30)
